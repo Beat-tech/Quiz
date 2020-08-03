@@ -27,17 +27,15 @@ header{
    section a{
     display: flex;
     flex-direction: row;
-    
-    width: 12vw;
+    width: 8vw;
     margin-top: 2vw;
-    margin-left: 2.5vw;
-    
-       font-size: larger;
-       color: black;
-       background-color: cornsilk;
-       padding: 0.3vw;
-       border-radius: 10px;
-       text-align: center;
+    margin-left: 4vw;
+    font-size: larger;
+    color: black;
+    background-color: cornsilk;
+    padding: 0.4vw;
+    border-radius: 10px;
+       
    }
 
     section{
@@ -56,36 +54,31 @@ header{
     
     article {
         display: flex;
-             
+        flex-direction: column;
         background-color:plum;
         height: 8vw;
         width: 15vw;
         opacity: 0.9;
         border-radius: 15px;
         padding: 1.5vw;
-        
     }
     
     article p{
         display: flex;
         flex-direction: row;
-        width: 80%;
-        margin-left: 1vw;
+        width: 10vw;
+        height: 2vw;
+        margin-left: 2vw;
         margin-top: 1vw;
-        text-align: start;
-        
+        text-align: center;
+        font-size: larger;
 }
         
-   img{
-        width: 15px;
-            }
-
     main{
         width: 35%;
         height: 80%;
         display: flex;
         flex-direction: column;
-        
         margin-left: 32vw;
         margin-top: 3vw;
         margin-bottom: 3vw;

@@ -1,76 +1,83 @@
-html{
+
+ html{
     font-family: 'Josefin Sans', sans-serif;
-    
-    background-color: rgb(223, 255, 182);
-    
+    background-color: rgb(223, 255, 182) ;
 }
 header{
     background-image: url("https://image.freepik.com/foto-gratis/explosion-colores-happy-holi-polvo-fondo-explosion-polvo-color_36326-2774.jpg");
     height: 5vw;
-    font-weight: bold;
-    font-size: larger;
-    }
     
+    }
+    header p{
+        display: flex;
+        flex-direction: row;
+        margin-left: 14.5vw;
+        margin-top: 2vw;
+        font-weight: bold;
+        font-size: larger;
+        
+    }
     a{
         text-decoration: none;
-        font-weight: 500;
-        padding-bottom: 15px;
-        
            }
-           
+
    a:hover{
        background-color: slateblue;
    }
- 
-    section{
-        
-        height: 30vw;
-        width: 50%;
-        text-align: justify;
-        position: relative;
-        top: 80px;
-        left: 120px;
-
-        
+   section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 9vw;
+    height: 30vw;
+    width: 50vw;
+    text-align: justify;
+            
     }
    
-    .respuestas{
-        display: flex;
-        flex-direction: column;
-              }
-
-              .respuestas a{
-                  padding-top: 7px;
+                    
                   
-              }
-    article {
-        background-color:plum;
-        opacity: 0.9;
-        border-radius: 15px;
-        padding: 20px;
-    }
-
-    main{
-        width: 35%;
-        height: 80%;
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-        margin-left: 32vw;
-        margin-top: 4vw;
-        margin-bottom: 4vw;
-        background-image: url("https://image.freepik.com/free-vector/question-mark-pattern_1319-109.jpg");
-        font-size: 17.5px;
-    
-    }
-    
-header p {
-    text-align: center;
-    margin-top: 25px;
+article {
+    display: flex;
+    flex-direction: column;
+    background-color:plum;
+    opacity: 0.9;
+    width: 30%;
+    border-radius: 15px;
+    padding: 1.5vw;
 }
+            
+  article p{
+    display: flex;
+    flex-direction: row;}
+    
+
+.respuestas{
+    display: flex;
+    flex-direction: column;
+} 
+
+.respuestas a{
+    margin-top:1vw;
+    padding:0.5vw;
+}
+
+main{
+    width: 35%;
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    margin-left: 32vw;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+    background-image: url("https://image.freepik.com/free-vector/question-mark-pattern_1319-109.jpg");
+         
+        }
+
+
 
 footer {
     background-image: url("https://image.freepik.com/foto-gratis/explosion-colores-happy-holi-polvo-fondo-explosion-polvo-color_36326-2774.jpg");
     height: 3vw;
     
-}
+} 
