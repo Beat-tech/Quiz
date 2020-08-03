@@ -1,0 +1,74 @@
+html{
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 17.5px;
+    background-color: rgb(223, 255, 182);
+    
+}
+header{
+    background-image: url("https://image.freepik.com/foto-gratis/explosion-colores-happy-holi-polvo-fondo-explosion-polvo-color_36326-2774.jpg");
+    height: 5vw;
+    font-weight: bold;
+    }
+    
+    a{
+        text-decoration: none;
+        font-weight: 580;
+        
+           }
+           
+   a:hover{
+       background-color: slateblue;
+   }
+ 
+    section{
+        
+        height: 30vw;
+        width: 50%;
+        text-align: justify;
+        position: relative;
+        top: 85px;
+        left: 120px;
+
+        
+    }
+   
+    .respuestas{
+        display: flex;
+        flex-direction: column;
+              }
+
+              .respuestas a{
+                  padding-top: 7px;
+                  
+              }
+    article {
+        background-color:plum;
+        opacity: 0.9;
+        border-radius: 15px;
+        padding: 20px;
+    }
+
+    main{
+        width: 35%;
+        height: 80%;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        margin-left: 30vw;
+        margin-top: 8vw;
+        margin-bottom: 8vw;
+        background-image: url("https://image.freepik.com/free-vector/question-mark-pattern_1319-109.jpg");
+    
+    
+    }
+    
+header p {
+    text-align: center;
+    margin-top: 25px;
+}
+
+footer {
+    background-image: url("https://image.freepik.com/foto-gratis/explosion-colores-happy-holi-polvo-fondo-explosion-polvo-color_36326-2774.jpg");
+    height: 3vw;
+    
+}
