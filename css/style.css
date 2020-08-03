@@ -6,6 +6,7 @@ header{
     background-image: url("https://image.freepik.com/foto-gratis/explosion-colores-happy-holi-polvo-fondo-explosion-polvo-color_36326-2774.jpg");
     height: 5vw;
     font-weight: bold;
+    font-size: larger;
     }
     
     a{
@@ -56,13 +57,13 @@ header{
         display: flex;
         flex-direction: column;
         position: absolute;
-        margin-left: 30vw;
-        margin-top: 8vw;
-        margin-bottom: 8vw;
+        margin-left: 32vw;
+        margin-top: 4vw;
+        margin-bottom: 4vw;
         background-image: url("https://image.freepik.com/free-vector/question-mark-pattern_1319-109.jpg");
-    
-    
-    }
+        font-size: 17.5px
+            
+            }
     
 header p {
     text-align: center;
