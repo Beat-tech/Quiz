@@ -107,7 +107,7 @@ footer {
     }
 
                 
-                           }
+                           
 
     footer {
         height: 60px;
@@ -119,8 +119,7 @@ footer {
        header p{
         padding: 5vw;
         padding-left: 20vw;
-        font-weight: bold;
-        font-size: larger;}
+        }
 
         
         
@@ -130,4 +129,4 @@ footer {
             margin-left: 1px;
             font-size: 15px;
         }
-  }     
+    }
