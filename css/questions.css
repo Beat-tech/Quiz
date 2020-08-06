@@ -81,3 +81,53 @@ footer {
     height: 3vw;
     
 } 
+
+@media only screen and (max-width: 600px) {
+     
+    main{
+        width: 90vw;
+        height: 90vh;            
+        margin: auto;              
+            } 
+    section{
+        height: 95vh;
+        width: 80vw;
+        text-align: justify;}
+    article {
+                    
+        height: 65vw;
+        width: 60vw;
+        margin-left: 20px;
+                    
+                }
+    section a{
+        margin-left: 65px;
+        width: 100px;
+       
+    }
+
+                
+                           }
+
+    footer {
+        height: 60px;
+         }
+
+       header{
+           height: 60px;
+       }  
+       header p{
+        padding: 5vw;
+        padding-left: 20vw;
+        font-weight: bold;
+        font-size: larger;}
+
+        
+        
+        .respuestas a{
+            margin-top:2px;
+            padding:4px;
+            margin-left: 1px;
+            font-size: 15px;
+        }
+  }     
