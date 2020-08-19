@@ -1,132 +1,114 @@
-
- html{
-    font-family: 'Josefin Sans', sans-serif;
-    background-color: rgb(223, 255, 182) ;
+html {
+  font-family: "Josefin Sans", sans-serif;
+  background-color: rgb(223, 255, 182);
 }
-header{
-    background-image: url("https://image.freepik.com/foto-gratis/explosion-colores-happy-holi-polvo-fondo-explosion-polvo-color_36326-2774.jpg");
-    height: 5vw;
-    
-    }
-    header p{
-        display: flex;
-        flex-direction: row;
-        margin-left: 14.5vw;
-        margin-top: 2vw;
-        font-weight: bold;
-        font-size: larger;
-        
-    }
-    a{
-        text-decoration: none;
-           }
+header {
+  background-image: url("https://image.freepik.com/foto-gratis/explosion-colores-happy-holi-polvo-fondo-explosion-polvo-color_36326-2774.jpg");
+  height: 5vw;
+}
+header p {
+  display: flex;
+  flex-direction: row;
+  margin-left: 14.5vw;
+  margin-top: 2vw;
+  font-weight: bold;
+  font-size: larger;
+}
+.answer {
+  text-decoration: none;
+}
 
-   a:hover{
-       background-color: slateblue;
-   }
-   section{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-left: 9vw;
-    height: 30vw;
-    width: 50vw;
-    text-align: justify;
-            
-    }
-   
-                    
-                  
+.answer:hover {
+  background-color: slateblue;
+}
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 9vw;
+  height: 30vw;
+  width: 50vw;
+  text-align: justify;
+}
+
 article {
-    display: flex;
-    flex-direction: column;
-    background-color:plum;
-    opacity: 0.9;
-    width: 30%;
-    border-radius: 15px;
-    padding: 1.5vw;
-}
-            
-  article p{
-    display: flex;
-    flex-direction: row;}
-    
-
-.respuestas{
-    display: flex;
-    flex-direction: column;
-} 
-
-.respuestas a{
-    margin-top:1vw;
-    padding:0.5vw;
+  display: flex;
+  flex-direction: column;
+  background-color: plum;
+  opacity: 0.9;
+  width: 30%;
+  border-radius: 15px;
+  padding: 1.5vw;
 }
 
-main{
-    width: 35%;
-    height: 80%;
-    display: flex;
-    flex-direction: column;
-    margin-left: 32vw;
-    margin-top: 3vw;
-    margin-bottom: 3vw;
-    background-image: url("https://image.freepik.com/free-vector/question-mark-pattern_1319-109.jpg");
-         
-        }
+article p {
+  display: flex;
+  flex-direction: row;
+}
 
+.respuestas {
+  display: flex;
+  flex-direction: column;
+}
 
+.answer {
+  margin-top: 1vw;
+  padding: 0.5vw;
+}
+
+main {
+  width: 35%;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 32vw;
+  margin-top: 3vw;
+  margin-bottom: 3vw;
+  background-image: url("https://image.freepik.com/free-vector/question-mark-pattern_1319-109.jpg");
+}
 
 footer {
-    background-image: url("https://image.freepik.com/foto-gratis/explosion-colores-happy-holi-polvo-fondo-explosion-polvo-color_36326-2774.jpg");
-    height: 3vw;
-    
-} 
+  background-image: url("https://image.freepik.com/foto-gratis/explosion-colores-happy-holi-polvo-fondo-explosion-polvo-color_36326-2774.jpg");
+  height: 3vw;
+}
 
 @media only screen and (max-width: 600px) {
-     
-    main{
-        width: 90vw;
-        height: 90vh;            
-        margin: auto;              
-            } 
-    section{
-        height: 95vh;
-        width: 80vw;
-        text-align: justify;}
-    article {
-                    
-        height: 65vw;
-        width: 60vw;
-        margin-left: 20px;
-                    
-                }
-    section a{
-        margin-left: 65px;
-        width: 100px;
-       
-    }
+  main {
+    width: 90vw;
+    height: 90vh;
+    margin: auto;
+  }
+  section {
+    height: 95vh;
+    width: 80vw;
+    text-align: justify;
+  }
+  article {
+    height: 65vw;
+    width: 60vw;
+    margin-left: 20px;
+  }
+  .answer {
+    margin-left: 65px;
+    width: 100px;
+  }
 
-                
-                           
+  footer {
+    height: 60px;
+  }
 
-    footer {
-        height: 60px;
-         }
+  header {
+    height: 60px;
+  }
+  header p {
+    padding: 5vw;
+    padding-left: 20vw;
+  }
 
-       header{
-           height: 60px;
-       }  
-       header p{
-        padding: 5vw;
-        padding-left: 20vw;
-        }
-
-        
-        
-        .respuestas a{
-            margin-top:2px;
-            padding:4px;
-            margin-left: 1px;
-            font-size: 15px;
-        }
-    }
+  .answer {
+    margin-top: 2px;
+    padding: 4px;
+    margin-left: 1px;
+    font-size: 15px;
+  }
+}

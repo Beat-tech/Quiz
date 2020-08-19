@@ -56,51 +56,77 @@ let preguntas = [
     question: "¿Cuál de estas películas es indispensable?",
     answers: [
       "What we did on our holiday",
-      "What we did on our holiday",
-      "What we did on our holiday",
+      "No What we did on our holiday",
+      "No What we did on our holiday",
     ],
     rightAnswer: 0,
   },
 ];
 console.log(preguntas);
 
-//  for (let i=0, i<preguntas.length, i++){}
+let contador = 0;
+
 let phase = `
              <article>
-     <p> ${preguntas[0].question} </p>
-        <nav class="respuestas">
-            <a href="questions1.html">${preguntas[0].answers[0]}</a>
-            <a href="questions1.html">${preguntas[0].answers[1]}</a>
-            <a href="questions1.html">${preguntas[0].answers[2]}</a>
-        </nav>
+     <p> ${preguntas[contador].question} </p>
+        <div class="respuestas">
+        <p class="answer" id="first" onclick= "change()">${preguntas[contador].answers[0]}</a>
+        <p class="answer" id="second" onclick= "change()">${preguntas[contador].answers[1]}</a>
+        <p class="answer" id="third" onclick= "change()">${preguntas[contador].answers[2]}</a>
+        </div>
      </article>
             `;
 console.log(phase);
 
-document.getElementById("question").innerHTML += phase;
+document.getElementById("question").innerHTML = phase;
 
-//  container.innerHTML += preguntas[0]
+let final = `
+    <section id= "final">
+    <article>
+      <p>X ACIERTOS</p>
+      <p>X FALLOS</p>
+    </article>
 
-// let container = document.getElementById ("questions")
-//     fetch(preguntas)
-//     .then( response => response.json())
-//     .then (rmData=>{
-//         console.log (rmData);
-//         rmData.results.length = 10
-//         rmData.results.map((preguntas)=>{
-//             console.log (preguntas)
-//             let phase = `
-//              <article>
-//      <p> ${preguntas.question} </p>
-//         <nav class="respuestas">
-//             <a href="questions1.html">"${preguntas.answers}"</a>
-//             <a href="questions1.html">${preguntas.answers }</a>
-//             <a href="questions1.html">${preguntas.answers }</a>
-//         </nav>
-//      </article>
-//             `
-//            ;
-//             container.innerHTML += phase
+    <a href="questions.html"> Start again</a>
+    </section>
+`;
 
-//         });
-//     })
+function change() {
+  if (contador < 9) {
+    contador += 1;
+    phase = `
+  <article>
+<p> ${preguntas[contador].question} </p>
+<div class="respuestas">
+<p class="answer" id="first" onclick= "change()">${preguntas[contador].answers[0]}</a>
+<p class="answer" id="second" onclick= "change()">${preguntas[contador].answers[1]}</a>
+<p class="answer" id="third" onclick= "change()">${preguntas[contador].answers[2]}</a>
+</div>
+</article>
+ `;
+    document.getElementById("question").innerHTML = phase;
+  } else {
+    //     final = `
+    //     <section id= "final">
+    //     <article>
+    //       <p>X ACIERTOS</p>
+    //       <p>X FALLOS</p>
+    //     </article>
+
+    //     <a href="questions.html"> Start again</a>
+    //     </section>
+    // `;
+    //     document.getElementById("final").innerHTML = final;
+    document.getElementById("question").innerHTML = final;
+  }
+}
+
+// let respuesta1 = document.getElementById("first");
+// respuesta1.onclick = () => {
+//   contador += 1;
+//   console.log(contador);
+//   document.getElementById("question").innerHTML += phase;
+// };
+// document.getElementById("second").onclick = () => alert("clikeaste");
+// document.getElementById("third").onclick = () => alert("clikeaste");
+
