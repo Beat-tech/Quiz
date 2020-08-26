@@ -62,7 +62,7 @@ let preguntas = [
     rightAnswer: 0,
   },
 ];
-console.log(preguntas);
+
 
 let contador = 0;
 
@@ -70,54 +70,60 @@ let phase = `
              <article>
      <p> ${preguntas[contador].question} </p>
         <div class="respuestas">
-        <p class="answer" id="first" onclick= "change()">${preguntas[contador].answers[0]}</a>
-        <p class="answer" id="second" onclick= "change()">${preguntas[contador].answers[1]}</a>
-        <p class="answer" id="third" onclick= "change()">${preguntas[contador].answers[2]}</a>
+        <p class="answer" id="first" onclick= "change(0)">${preguntas[contador].answers[0]}</a>
+        <p class="answer" id="second" onclick= "change(1)">${preguntas[contador].answers[1]}</a>
+        <p class="answer" id="third" onclick= "change(2)">${preguntas[contador].answers[2]}</a>
         </div>
      </article>
             `;
-console.log(phase);
+
 
 document.getElementById("question").innerHTML = phase;
+let aciertos = 0;
 
-let final = `
+
+
+
+function change(respuestaUsuario) {
+  if (contador < 9) {
+    contador++;
+    phase = `
+  <article>
+<p> ${preguntas[contador].question} </p>
+<div class="respuestas">
+<p class="answer" id="first" onclick= "change(0)">${preguntas[contador].answers[0]} </a>
+<p class="answer" id="second" onclick= "change(1)">${preguntas[contador].answers[1]}</a>
+<p class="answer" id="third" onclick= "change(2)">${preguntas[contador].answers[2]}</a>
+</div>
+</article>
+ `;
+    document.getElementById("question").innerHTML = phase;
+    // console.log("respuestaUsuario=" + respuestaUsuario)
+    // console.log("preguntas[contador].rightAnswer=" + preguntas[contador - 1].rightAnswer)
+    // console.log("contador=" + contador)
+    // console.log("preguntas[contador]=" + preguntas[contador - 1])
+    if (respuestaUsuario === preguntas[contador - 1].rightAnswer) {
+      // alert("Bien");
+      aciertos++;
+    }
+    // else {
+    //   alert("Fallaste")
+    // }
+
+  }
+  else {
+    let final = `
     <section id= "final">
     <article>
-      <p>X ACIERTOS</p>
-      <p>X FALLOS</p>
+      <p>${aciertos} ACIERTOS</p>
+      
     </article>
 
     <a href="questions.html"> Start again</a>
     </section>
 `;
-
-function change() {
-  if (contador < 9) {
-    contador += 1;
-    phase = `
-  <article>
-<p> ${preguntas[contador].question} </p>
-<div class="respuestas">
-<p class="answer" id="first" onclick= "change()">${preguntas[contador].answers[0]}</a>
-<p class="answer" id="second" onclick= "change()">${preguntas[contador].answers[1]}</a>
-<p class="answer" id="third" onclick= "change()">${preguntas[contador].answers[2]}</a>
-</div>
-</article>
- `;
-    document.getElementById("question").innerHTML = phase;
-  } else {
-    //     final = `
-    //     <section id= "final">
-    //     <article>
-    //       <p>X ACIERTOS</p>
-    //       <p>X FALLOS</p>
-    //     </article>
-
-    //     <a href="questions.html"> Start again</a>
-    //     </section>
-    // `;
-    //     document.getElementById("final").innerHTML = final;
     document.getElementById("question").innerHTML = final;
+    // window.location.href = "end.html"
   }
 }
 
