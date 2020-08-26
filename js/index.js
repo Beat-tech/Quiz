@@ -85,6 +85,11 @@ let aciertos = 0;
 
 
 function change(respuestaUsuario) {
+  if (respuestaUsuario === preguntas[contador].rightAnswer) {
+    // alert("Bien");
+    aciertos++;
+    console.log(aciertos)
+  }
   if (contador < 9) {
     contador++;
     phase = `
@@ -102,10 +107,8 @@ function change(respuestaUsuario) {
     // console.log("preguntas[contador].rightAnswer=" + preguntas[contador - 1].rightAnswer)
     // console.log("contador=" + contador)
     // console.log("preguntas[contador]=" + preguntas[contador - 1])
-    if (respuestaUsuario === preguntas[contador - 1].rightAnswer) {
-      // alert("Bien");
-      aciertos++;
-    }
+   
+
     // else {
     //   alert("Fallaste")
     // }
