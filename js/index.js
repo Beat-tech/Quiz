@@ -64,78 +64,138 @@ let preguntas = [
 ];
 
 
-let contador = 0;
+// let contador = 0;
 
-let phase = `
+// let phase = `
+//              <article>
+//      <p> ${preguntas[contador].question} </p>
+//         <div class="respuestas">
+//         <p class="answer" id="first" onclick= "change(0)">${preguntas[contador].answers[0]}</a>
+//         <p class="answer" id="second" onclick= "change(1)">${preguntas[contador].answers[1]}</a>
+//         <p class="answer" id="third" onclick= "change(2)">${preguntas[contador].answers[2]}</a>
+//         </div>
+//      </article>
+//             `;
+
+
+// document.getElementById("question").innerHTML = phase;
+// let aciertos = 0;
+
+
+
+
+// function change(respuestaUsuario) {
+//   if (respuestaUsuario === preguntas[contador].rightAnswer) {
+//     // alert("Bien");
+//     aciertos++;
+//     console.log(aciertos)
+//   }
+//   // else {
+//   //   alert("Fallaste")
+//   // }
+//   if (contador < 9) {
+//     contador++;
+//     phase = `
+//   <article>
+
+// </article>
+//  `;
+//     document.getElementById("question").innerHTML = phase;
+
+
+
+//   }
+//   else {
+//     let final = `
+//     <section id= "final">
+//     <article>
+//       <p>${aciertos} ACIERTOS</p>
+
+//     </article>
+
+//     <a href="questions.html"> Start again</a>
+//     </section>
+// `;
+//     document.getElementById("question").innerHTML = final;
+//     // window.location.href = "end.html"
+//   }
+// }
+//disorder = [[],[],[],[],[]]
+
+let aciertos = 0;
+let counter = 0;
+let container = document.getElementById("question");
+let questions1 = [];
+let randomNum;
+function desordenar(zapato, rand) {
+
+  let disorder = [...zapato.incorrect_answers]
+
+
+  disorder.splice(rand, 1, zapato.correct_answer)
+
+  return disorder
+}
+fetch(`https://opentdb.com/api.php?amount=10&type=multiple`)
+  .then(response => response.json())
+  .then(triviaData => {
+    triviaData.results.map((n) => {
+      randomNum = Math.floor(Math.random() * 3);
+      console.log(randomNum)
+      questions1.push({ "question": n.question, "answers": desordenar(n, randomNum), "rightAnswer": randomNum })
+
+
+    })
+    console.log(questions1)
+    cambiarScreen();
+
+  })
+
+
+
+// let disorder = [...triviaData.results[counter].incorrect_answers]
+// let randomNum = Math.floor(Math.random() * 3);
+
+// disorder.splice(randomNum, 1, triviaData.results[counter].correct_answer)
+function cambiarScreen(respuestaUsuario1) {
+  if (respuestaUsuario1 === randomNum) {
+    aciertos++;
+  }
+  let phase = `
              <article>
-     <p> ${preguntas[contador].question} </p>
+     <p> ${questions1[counter].question} </p>
         <div class="respuestas">
-        <p class="answer" id="first" onclick= "change(0)">${preguntas[contador].answers[0]}</a>
-        <p class="answer" id="second" onclick= "change(1)">${preguntas[contador].answers[1]}</a>
-        <p class="answer" id="third" onclick= "change(2)">${preguntas[contador].answers[2]}</a>
+        <p class="answer" id="first" onclick= "change1(0)">${questions1[counter].answers[0]}</a>
+        <p class="answer" id="second" onclick= "change1(1)">${questions1[counter].answers[1]}</a>
+        <p class="answer" id="third" onclick= "change1(2)">${questions1[counter].answers[2]}</a>
         </div>
      </article>
             `;
+  ;
+  container.innerHTML = phase
+}
 
-
-document.getElementById("question").innerHTML = phase;
-let aciertos = 0;
-
-
-
-
-function change(respuestaUsuario) {
-  if (respuestaUsuario === preguntas[contador].rightAnswer) {
-    // alert("Bien");
-    aciertos++;
-    console.log(aciertos)
-  }
-  if (contador < 9) {
-    contador++;
-    phase = `
-  <article>
-<p> ${preguntas[contador].question} </p>
-<div class="respuestas">
-<p class="answer" id="first" onclick= "change(0)">${preguntas[contador].answers[0]} </a>
-<p class="answer" id="second" onclick= "change(1)">${preguntas[contador].answers[1]}</a>
-<p class="answer" id="third" onclick= "change(2)">${preguntas[contador].answers[2]}</a>
-</div>
-</article>
- `;
-    document.getElementById("question").innerHTML = phase;
-    // console.log("respuestaUsuario=" + respuestaUsuario)
-    // console.log("preguntas[contador].rightAnswer=" + preguntas[contador - 1].rightAnswer)
-    // console.log("contador=" + contador)
-    // console.log("preguntas[contador]=" + preguntas[contador - 1])
-   
-
-    // else {
-    //   alert("Fallaste")
-    // }
-
+function change1(respuestaUsuario1) {
+  if (counter < 9) {
+    counter++;
+    cambiarScreen();
   }
   else {
     let final = `
-    <section id= "final">
-    <article>
-      <p>${aciertos} ACIERTOS</p>
+          <section id= "final">
+          <article>
+            <p>${aciertos} ACIERTOS</p>
       
-    </article>
-
-    <a href="questions.html"> Start again</a>
-    </section>
-`;
+          </article>
+      
+          <a href="questions.html"> Start again</a>
+          </section>
+      `;
     document.getElementById("question").innerHTML = final;
-    // window.location.href = "end.html"
-  }
-}
+    
 
-// let respuesta1 = document.getElementById("first");
-// respuesta1.onclick = () => {
-//   contador += 1;
-//   console.log(contador);
-//   document.getElementById("question").innerHTML += phase;
-// };
-// document.getElementById("second").onclick = () => alert("clikeaste");
-// document.getElementById("third").onclick = () => alert("clikeaste");
+  }
+
+
+}
 
