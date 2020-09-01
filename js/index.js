@@ -63,7 +63,93 @@ let preguntas = [
   },
 ];
 
+let aciertos = 0;
+let counter = 0;
+let container = document.getElementById("question");
+let questions1 = [];
+let randomNum;
+function desordenar(zapato, rand) {
 
+  let disorder = [...zapato.incorrect_answers]
+
+
+  disorder.splice(rand, 1, zapato.correct_answer)
+
+  return disorder
+}
+fetch(`https://opentdb.com/api.php?amount=10&type=multiple`)
+  .then(response => response.json())
+  .then(triviaData => {
+    triviaData.results.map((n) => {
+      randomNum = Math.floor(Math.random() * 3);
+
+      // console.log(randomNum)
+      questions1.push({ "question": n.question, "answers": desordenar(n, randomNum), "rightAnswer": randomNum })
+
+
+    })
+    // console.log(questions1)
+
+    cambiarScreen();
+
+  })
+
+console.log(questions1)
+
+
+function cambiarScreen(respuestaUsuario1) {
+  console.log("pregunta numero" + counter)
+  console.log(counter)
+  if (counter != 0) {
+    if (respuestaUsuario1 === questions1[counter - 1].rightAnswer) {
+
+      aciertos++;
+
+    } else { console.log("error") }
+  }
+  let phase = `
+             <article>
+     <p> ${questions1[counter].question} </p>
+        <div class="respuestas">
+        <p class="answer" id="first" onclick= "change1(0)">${questions1[counter].answers[0]}</a>
+        <p class="answer" id="second" onclick= "change1(1)">${questions1[counter].answers[1]}</a>
+        <p class="answer" id="third" onclick= "change1(2)">${questions1[counter].answers[2]}</a>
+        </div>
+     </article>
+            `;
+  ;
+  container.innerHTML = phase
+}
+
+function change1(respuestaUsuario1) {
+  if (counter < 9) {
+    counter++;
+
+    cambiarScreen(respuestaUsuario1);
+  }
+  else {
+    let final = `
+          <section id= "final">
+          <article>
+            <p>${aciertos} ACIERTOS</p>
+      
+          </article>
+      
+          <a href="questions.html"> Start again</a>
+          </section>
+      `;
+    document.getElementById("question").innerHTML = final;
+
+
+  }
+
+
+}
+
+// let disorder = [...triviaData.results[counter].incorrect_answers]
+// let randomNum = Math.floor(Math.random() * 3);
+
+// disorder.splice(randomNum, 1, triviaData.results[counter].correct_answer)
 // let contador = 0;
 
 // let phase = `
@@ -121,81 +207,3 @@ let preguntas = [
 //   }
 // }
 //disorder = [[],[],[],[],[]]
-
-let aciertos = 0;
-let counter = 0;
-let container = document.getElementById("question");
-let questions1 = [];
-let randomNum;
-function desordenar(zapato, rand) {
-
-  let disorder = [...zapato.incorrect_answers]
-
-
-  disorder.splice(rand, 1, zapato.correct_answer)
-
-  return disorder
-}
-fetch(`https://opentdb.com/api.php?amount=10&type=multiple`)
-  .then(response => response.json())
-  .then(triviaData => {
-    triviaData.results.map((n) => {
-      randomNum = Math.floor(Math.random() * 3);
-      console.log(randomNum)
-      questions1.push({ "question": n.question, "answers": desordenar(n, randomNum), "rightAnswer": randomNum })
-
-
-    })
-    console.log(questions1)
-    cambiarScreen();
-
-  })
-
-
-
-// let disorder = [...triviaData.results[counter].incorrect_answers]
-// let randomNum = Math.floor(Math.random() * 3);
-
-// disorder.splice(randomNum, 1, triviaData.results[counter].correct_answer)
-function cambiarScreen(respuestaUsuario1) {
-  if (respuestaUsuario1 === randomNum) {
-    aciertos++;
-  }
-  let phase = `
-             <article>
-     <p> ${questions1[counter].question} </p>
-        <div class="respuestas">
-        <p class="answer" id="first" onclick= "change1(0)">${questions1[counter].answers[0]}</a>
-        <p class="answer" id="second" onclick= "change1(1)">${questions1[counter].answers[1]}</a>
-        <p class="answer" id="third" onclick= "change1(2)">${questions1[counter].answers[2]}</a>
-        </div>
-     </article>
-            `;
-  ;
-  container.innerHTML = phase
-}
-
-function change1(respuestaUsuario1) {
-  if (counter < 9) {
-    counter++;
-    cambiarScreen();
-  }
-  else {
-    let final = `
-          <section id= "final">
-          <article>
-            <p>${aciertos} ACIERTOS</p>
-      
-          </article>
-      
-          <a href="questions.html"> Start again</a>
-          </section>
-      `;
-    document.getElementById("question").innerHTML = final;
-    
-
-  }
-
-
-}
-
